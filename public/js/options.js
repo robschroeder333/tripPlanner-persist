@@ -18,9 +18,48 @@ $(function () {
     var $activitySelect = $optionsPanel.find('#activity-choices');
 
     // make all the option tags (second arg of `forEach` is a `this` binding)
-    hotels.forEach(makeOption, $hotelSelect);
-    restaurants.forEach(makeOption, $restaurantSelect);
-    activities.forEach(makeOption, $activitySelect);
+    // hotels.forEach(makeOption, $hotelSelect);
+    // restaurants.forEach(makeOption, $restaurantSelect);
+    // activities.forEach(makeOption, $activitySelect);
+
+    $.ajax({
+      method: 'GET',
+      url: '/api/hotels',
+    })
+    .then(function (responseData) {
+      // some code to run when the response comes back
+      console.log(responseData)
+      responseData.forEach(makeOption, $hotelSelect);
+    })
+    .catch(function (errorObj) {
+      // some code to run if the request errors out
+    });
+
+    $.ajax({
+      method: 'GET',
+      url: '/api/activities',
+    })
+    .then(function (responseData) {
+      // some code to run when the response comes back
+      console.log(responseData)
+      responseData.forEach(makeOption, $activitySelect);
+    })
+    .catch(function (errorObj) {
+      // some code to run if the request errors out
+    });
+
+    $.ajax({
+      method: 'GET',
+      url: '/api/restaurants',
+    })
+    .then(function (responseData) {
+      // some code to run when the response comes back
+      console.log(responseData)
+      responseData.forEach(makeOption, $restaurantSelect);
+    })
+    .catch(function (errorObj) {
+      // some code to run if the request errors out
+    });
 
     // Once you've made AJAX calls to retrieve this information,
     // call attractions.loadEnhancedAttractions in the fashion
