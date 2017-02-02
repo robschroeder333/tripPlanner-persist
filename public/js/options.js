@@ -22,43 +22,34 @@ $(function () {
     // restaurants.forEach(makeOption, $restaurantSelect);
     // activities.forEach(makeOption, $activitySelect);
 
-    $.ajax({
-      method: 'GET',
-      url: '/api/hotels',
-    })
+    $.get('/api/hotels')
     .then(function (responseData) {
       // some code to run when the response comes back
-      console.log(responseData)
       responseData.forEach(makeOption, $hotelSelect);
     })
-    .catch(function (errorObj) {
+    .catch(function(errorObj) {
       // some code to run if the request errors out
+      console.error(errorObj);
     });
 
-    $.ajax({
-      method: 'GET',
-      url: '/api/activities',
-    })
+    $.get('/api/activities')
     .then(function (responseData) {
       // some code to run when the response comes back
-      console.log(responseData)
       responseData.forEach(makeOption, $activitySelect);
     })
     .catch(function (errorObj) {
       // some code to run if the request errors out
+      console.error(errorObj);
     });
 
-    $.ajax({
-      method: 'GET',
-      url: '/api/restaurants',
-    })
+    $.get('/api/restaurants')
     .then(function (responseData) {
       // some code to run when the response comes back
-      console.log(responseData)
       responseData.forEach(makeOption, $restaurantSelect);
     })
     .catch(function (errorObj) {
       // some code to run if the request errors out
+      console.error(errorObj);
     });
 
     // Once you've made AJAX calls to retrieve this information,
