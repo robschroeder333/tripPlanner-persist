@@ -8,7 +8,6 @@ router.get('/', function(req, res, next) {
 
   Activity.findAll()
   .then((allActivities) => {
-    console.log(allActivities);
     res.send(allActivities);
   })
   .catch(next)

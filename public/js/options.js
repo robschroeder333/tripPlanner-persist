@@ -1,5 +1,5 @@
 'use strict';
-/* global $ tripModule attractionsModule hotels restaurants activities */
+/* global $ tripModule attractionsModule hotels restaurants activities dayModule */
 
 /**
  * This module fills the `select` tags with `option`s.
@@ -16,6 +16,8 @@ $(function () {
     var $hotelSelect = $optionsPanel.find('#hotel-choices');
     var $restaurantSelect = $optionsPanel.find('#restaurant-choices');
     var $activitySelect = $optionsPanel.find('#activity-choices');
+    var $divDaysBtnSelect = $('.day-buttons');
+    var $dayButtonsChildren = $('.day-buttons > button');
 
     // make all the option tags (second arg of `forEach` is a `this` binding)
     // hotels.forEach(makeOption, $hotelSelect);
@@ -65,6 +67,7 @@ $(function () {
           .val(databaseAttraction.id);
         this.append($option); // add the option to the specific select
     }
+
 
     // what to do when the `+` button next to a `select` is clicked
     $optionsPanel.on('click', 'button[data-action="add"]', function () {

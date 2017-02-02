@@ -8,7 +8,6 @@ router.get('/', function(req, res, next) {
 
   Hotel.findAll()
   .then((allhotels) => {
-    console.log(allhotels);
     res.send(allhotels);
   })
   .catch(next)
